@@ -1,0 +1,8 @@
+The difference between the speed of the benchmark-blas and benchmark-blocked was very significant. However the difference in speed
+between the benchmark-naive and benchmark-blocked were not so signficant. In order to increase the speed of dgemm-blocked I tried 
+multiple strategies. Some worked very well and some barely made any change. I noticed that manipulating the block size had 
+different effects based on if you increased the block size or decreased it. The strategy I tried to implement for the code was 
+loop unrolling. I triedd to use different modules such as #pragma to get the compiler to automatically unroll the loop but nothing seemed to work
+for me. So instead I manually unrolled the loops in the code. I did it to where the matrix multipication can iterate 4 times. This
+strategy increased the speed of the blocked code for me but for some reason the code fails even after compiling to the very last
+test size matrix. I've tried countless things to try and fix this problem but nothing has seemed to work. 
